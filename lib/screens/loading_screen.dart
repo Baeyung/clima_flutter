@@ -1,7 +1,7 @@
 import 'package:clima_flutter/screens/location_screen.dart';
-import 'package:clima_flutter/services/location.dart';
-import 'package:clima_flutter/services/networking.dart';
+import 'package:clima_flutter/services/weather.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class LoadingScreen extends StatefulWidget {
   const LoadingScreen({Key? key}) : super(key: key);
@@ -12,17 +12,13 @@ class LoadingScreen extends StatefulWidget {
 
 class _LoadingScreenState extends State<LoadingScreen> {
   void getLocation() async {
-    Location location = Location();
-    Networking networking = Networking();
-    await location.getCurrentLocation();
-    var weatherData = await networking.getDataByLatLon(
-      location.latitude,
-      location.longitude,
-    );
+    dynamic weatherData = await WeatherModel().getLocationWeather();
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => const LocationScreen(),
+        builder: (context) => LocationScreen(
+          weatherData: weatherData,
+        ),
       ),
     );
   }
@@ -37,9 +33,10 @@ class _LoadingScreenState extends State<LoadingScreen> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: ElevatedButton(
-          onPressed: null,
-          child: Text('Get Location'),
+        child: SpinKitWave(
+          color: Colors.white,
+          size: 60,
+          itemCount: 10,
         ),
       ),
     );

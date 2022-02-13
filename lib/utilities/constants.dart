@@ -20,3 +20,12 @@ const kButtonTextStyle = TextStyle(
 const kConditionTextStyle = TextStyle(
   fontSize: 100.0,
 );
+ButtonStyle ktransparentStyle = ElevatedButton.styleFrom(
+  elevation: 0.0,
+  primary: Colors.red.withOpacity(0),
+  shape: const RoundedRectangleBorder(
+    borderRadius: BorderRadius.all(
+      Radius.circular(2),
+    ),
+  ),
+);
