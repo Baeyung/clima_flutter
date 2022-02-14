@@ -29,3 +29,37 @@ ButtonStyle ktransparentStyle = ElevatedButton.styleFrom(
     ),
   ),
 );
+
+const String kError = 'error';
+
+const String kErrorMessage = 'Unable to fetch the location';
+
+const String kEmptyString = '';
+
+const InputDecoration kLocationNameInput = InputDecoration(
+  fillColor: Colors.white,
+  // hintText: 'Location name',
+  filled: false,
+  labelText: 'Location Name',
+  labelStyle: TextStyle(
+    color: Colors.blue,
+    fontSize: 30,
+  ),
+  border: OutlineInputBorder(
+    borderRadius: BorderRadius.all(
+      Radius.circular(10),
+    ),
+    borderSide: BorderSide(color: Colors.black),
+  ),
+  icon: Icon(
+    Icons.location_city,
+    color: Colors.white,
+  ),
+  // hintStyle: TextStyle(
+  //   color: Colors.grey,
+  // ),
+);
+
+const TextStyle kInputTextStyle = TextStyle(
+  color: Colors.white,
+);
